@@ -1818,6 +1818,10 @@
         if (_.options.autoplay === true && _.options.pauseOnHover === true) {
             _.paused = paused;
             _.autoPlayClear();
+			
+			if (_.slideCount > _.options.slidesToShow && _.paused !== true) {
+				_.autoPlayTimer = setInterval(_.autoPlayIterator, _.options.autoplaySpeed);
+			}
         }
     };
 
